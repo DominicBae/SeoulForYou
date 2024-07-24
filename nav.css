@@ -1,0 +1,227 @@
+body {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* navbar */
+.navbar-nav {
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 15px;
+}
+
+@media (max-width: 575.98px) {
+    .navbar-text img {
+        width: 30px;
+    }
+
+    .navbar-brand {
+        margin-left: 35px; /* 로고의 왼쪽 간격 추가 */
+    }
+
+    .navbar-text {
+        margin-right: auto; /* 날씨 텍스트가 왼쪽으로 이동 */
+    }
+
+    .nav-item {
+        margin-left: 0; /* 모바일에서 nav-item 간격 제거 */
+    }
+
+    .dropdown-menu {
+        right: 10px; /* 오른쪽 정렬 해제 */
+        left: auto; /* 왼쪽에 맞춤 */
+        transform: translateX(-50%); /* 수평 위치 조정 */
+        min-width: 100px; /* 최소 너비 설정 */
+    }
+}
+
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    transition: transform 0.2s;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.nav-link {
+    color: #007bff;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: #0056b3;
+}
+
+.dropdown-menu {
+    min-width: 120px;
+}
+
+/* 언어 드롭다운 메뉴가 위로 올라가지 않도록 고정 */
+.navbar-nav .dropdown-menu-end {
+    right: 0;
+    left: auto;
+}
+
+.navbar-nav .dropdown-toggle::after {
+    vertical-align: middle;
+}
+
+.navbar-nav .fixed-toggle {
+    position: relative;
+}
+
+.navbar-nav .dropdown-menu {
+    top: 100%; /* 부모 요소 바로 아래에 위치 */
+    position: absolute;
+    left: 10%; 
+    transform: translateX(-50%); 
+}
+
+/* main */
+main {
+    flex-grow: 1;
+}
+
+.card-body img {
+    margin-top: 20px;
+}
+
+/* .card-link 스타일 추가 */
+.card-link {
+    text-decoration: none;
+}
+
+.card-link:hover .card {
+    transform: scale(1.02);
+    transition: transform 0.2s;
+}
+
+
+
+/* footer */
+footer {
+    position: relative;
+    background-image: url('./image/footer.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* 반투명 검정 배경 추가 */
+    z-index: 1;
+}
+
+footer > .container {
+    position: relative;
+    z-index: 2;
+}
+
+.first-box {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.company {
+    margin-right: 255px;
+    font-family: sans-serif;
+    color: #fff; /* 글씨를 흰색으로 변경 */
+}
+
+.second-line {
+    color: #fff; /* 글씨를 흰색으로 변경 */
+}
+
+.second-box {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.sns-box {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.3); /* 아이콘 배경색 변경 (반투명 흰색) */
+    border-radius: 50%;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.sns-box:hover {
+    background-color: rgba(255, 255, 255, 0.6); /* 호버 시 배경색 변경 (더 밝은 반투명 흰색) */
+}
+
+.sns-box a {
+    text-decoration: none;
+}
+
+.sns-icon {
+    color: #fff; /* 아이콘 색상 흰색으로 변경 */
+    font-size: 25px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.sns-icon:hover {
+    color: #ddd; /* 호버 시 아이콘 색상 밝은 회색으로 변경 */
+    transform: scale(1.2);
+}
+
+/* 모바일 버전에서의 SNS 아이콘 크기 조정 */
+.mobile-sns {
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-right: 10px;
+}
+
+.mobile-sns-icon {
+    font-size: 20px;
+}
+
+/* Responsive Design for Mobile */
+@media screen and (min-width: 320px) and (max-width: 1199px) {
+    .laptop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+    .second-box {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .mobile {
+        display: none;
+    }
+}
