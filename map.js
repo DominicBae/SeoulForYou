@@ -73,11 +73,9 @@ function displayKeywordPlaces(places) {
 
     (function(marker, place) {
       kakao.maps.event.addListener(marker, 'click', function() {
-        displayPlaceInfo(place, marker);
+        window.open(`https://place.map.kakao.com/${place.id}`, '_blank');
       });
-    })(marker, places[i]);
 
-    (function(marker, place) {
       kakao.maps.event.addListener(marker, 'mouseover', function() {
         displayInfowindow(marker, place);
       });
@@ -92,6 +90,10 @@ function displayKeywordPlaces(places) {
 
       itemEl.onmouseout = function() {
         infowindow.close();
+      };
+
+      itemEl.onclick = function() {
+        window.open(`https://place.map.kakao.com/${place.id}`, '_blank');
       };
     })(marker, places[i]);
 
@@ -215,15 +217,4 @@ function changeCategoryClass(value) {
       item.classList.remove('on');
     }
   });
-}
-
-// 장소 정보 표시 함수
-function displayPlaceInfo(place, marker) {
-  let content = `<div class="custom-infowindow">
-                   <h5>${place.place_name}</h5>
-                   <p>${place.road_address_name || place.address_name}</p>
-                   <p>${place.phone}</p>
-                 </div>`;
-  infowindow.setContent(content);
-  infowindow.open(map, marker);
 }
